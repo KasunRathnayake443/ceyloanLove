@@ -9,13 +9,23 @@
 <body>
 
     <!-- HERO -->
-    <div class="hero">
+     <div class="hero">
+        <div class="hero-slides">
+            <img src="Source/img/hero1.jpg" class="slide active">
+            <img src="Source/img/hero2.jpg" class="slide">
+            <img src="Source/img/hero3.jpg" class="slide">
+            <img src="Source/img/hero4.jpg" class="slide">
+        </div>
+
+        <div class="hero-overlay"></div>
+
         <div class="hero-content">
             <h1>Discover Sri Lanka</h1>
             <p>The Pearl of the Indian Ocean – Where Ancient Culture Meets Natural Paradise</p>
             <a href="#places" class="btn">Explore Now</a>
         </div>
     </div>
+
 
     <!-- CULTURE SECTION -->
     <section>
@@ -175,6 +185,19 @@
             <p>&copy; 2025 Discover Sri Lanka. All Rights Reserved.</p>
         </div>
     </footer>
+
+
+     <!-- SLIDESHOW SCRIPT -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+    </script>
 
 </body>
 </html>
