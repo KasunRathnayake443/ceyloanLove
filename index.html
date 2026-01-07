@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Sri Lanka - Island of Wonders</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,150 600,300 T1200,300 L1200,600 L0,600 Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x;
+            animation: wave 20s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1200px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #1e3a8a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #1e3a8a;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #3b82f6, #06b6d4);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .culture-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .culture-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .culture-card-header {
+            height: 200px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .culture-card-body {
+            padding: 25px;
+        }
+
+        .culture-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .places-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .place-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .place-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .place-image {
+            height: 220px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .place-content {
+            padding: 20px;
+        }
+
+        .place-content h3 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .place-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .highlight-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .highlight-section h2 {
+            color: white;
+        }
+
+        .highlight-section h2::after {
+            background: linear-gradient(to right, white, rgba(255,255,255,0.5));
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Discover Sri Lanka</h1>
+            <p>The Pearl of the Indian Ocean - Where Ancient Culture Meets Natural Paradise</p>
+            <a href="#places" class="btn">Explore Now</a>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <h2>Rich Cultural Heritage</h2>
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <div class="culture-card-header">🏛️</div>
+                    <div class="culture-card-body">
+                        <h3>Ancient Kingdoms</h3>
+                        <p>Sri Lanka boasts over 2,500 years of recorded history, with ancient cities like Anuradhapura and Polonnaruwa showcasing magnificent ruins of bygone civilizations. Marvel at towering dagobas, intricate stone carvings, and royal palaces that tell stories of powerful kings and queens.</p>
+                    </div>
+                </div>
+
+                <div class="culture-card">
+                    <div class="culture-card-header">🙏</div>
+                    <div class="culture-card-body">
+                        <h3>Buddhist Heritage</h3>
+                        <p>Home to the sacred Temple of the Tooth in Kandy and the ancient Bodhi Tree, Sri Lanka is one of the oldest Buddhist nations. Experience colorful festivals like Esala Perahera, witness daily rituals, and find peace in serene mountain temples.</p>
+                    </div>
+                </div>
+
+                <div class="culture-card">
+                    <div class="culture-card-header">🎭</div>
+                    <div class="culture-card-body">
+                        <h3>Traditional Arts</h3>
+                        <p>From vibrant Kandyan dances with rhythmic drumming to intricate handicrafts like mask carving and batik, Sri Lankan culture is alive with artistic expression. Experience traditional music, devil dancing rituals, and contemporary fusion performances.</p>
+                    </div>
+                </div>
+
+                <div class="culture-card">
+                    <div class="culture-card-header">🍛</div>
+                    <div class="culture-card-body">
+                        <h3>Culinary Delights</h3>
+                        <p>Savor aromatic rice and curry, hoppers for breakfast, kottu roti street food, and world-famous Ceylon tea. Sri Lankan cuisine blends spices, coconut, and fresh seafood into unforgettable flavors influenced by South Indian, Dutch, and Portuguese traditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="places-section" id="places">
+        <div class="container">
+            <h2>Must-Visit Destinations</h2>
+            <div class="places-grid">
+                <div class="place-card">
+                    <div class="place-image">🗿</div>
+                    <div class="place-content">
+                        <h3>Sigiriya Rock Fortress</h3>
+                        <p>Ancient rock fortress rising 200m above jungle. UNESCO World Heritage site with stunning frescoes and breathtaking views.</p>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <div class="place-image">🏖️</div>
+                    <div class="place-content">
+                        <h3>Mirissa & Unawatuna</h3>
+                        <p>Pristine beaches with golden sand, crystal waters perfect for whale watching, surfing, and relaxation under palm trees.</p>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <div class="place-image">🌄</div>
+                    <div class="place-content">
+                        <h3>Ella & Hill Country</h3>
+                        <p>Misty mountains, tea plantations, scenic train rides, and waterfalls. Hike Little Adam's Peak or Nine Arch Bridge.</p>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <div class="place-image">🏯</div>
+                    <div class="place-content">
+                        <h3>Kandy</h3>
+                        <p>Cultural capital with the sacred Temple of the Tooth Relic, serene lake, botanical gardens, and traditional dance performances.</p>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <div class="place-image">🦁</div>
+                    <div class="place-content">
+                        <h3>Yala National Park</h3>
+                        <p>Home to leopards, elephants, sloth bears, and over 200 bird species. One of the best wildlife safari destinations in Asia.</p>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <div class="place-image">🏛️</div>
+                    <div class="place-content">
+                        <h3>Galle Fort</h3>
+                        <p>Dutch colonial fort city with cobblestone streets, boutique shops, cafes, and stunning ocean views along historic ramparts.</p>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <div class="place-image">🌳</div>
+                    <div class="place-content">
+                        <h3>Sinharaja Rainforest</h3>
+                        <p>UNESCO World Heritage site. Tropical rainforest with endemic species, rare birds, and incredible biodiversity.</p>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <div class="place-image">🐘</div>
+                    <div class="place-content">
+                        <h3>Pinnawala Elephant Orphanage</h3>
+                        <p>Witness orphaned elephants bathing in the river, feeding, and playing. Learn about conservation efforts up close.</p>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <div class="place-image">⛰️</div>
+                    <div class="place-content">
+                        <h3>Adam's Peak</h3>
+                        <p>Sacred mountain pilgrimage site. Climb 5,500 steps for sunrise views and the mysterious "Sri Pada" footprint.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlight-section">
+        <div class="container">
+            <h2>Why Visit Sri Lanka?</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <p>UNESCO World Heritage Sites</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1,340km</div>
+                    <p>Stunning Coastline</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">26</div>
+                    <p>National Parks & Reserves</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">21</div>
+                    <p>Ethnic & Cultural Diversity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Discover Sri Lanka. Experience the Wonder of the Pearl of the Indian Ocean.</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Plan your journey to this magical island paradise today!</p>
+        </div>
+    </footer>
+</body>
+</html>
