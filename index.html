@@ -5,22 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discover Sri Lanka - Island of Wonders</title>
     <link rel="stylesheet" href="Source/css/main.css">
+
 </head>
+
 <body>
 
     <!-- NAVIGATION -->
 
-    <!-- NAVIGATION -->
-<nav class="navbar">
-    <div class="nav-container">
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#places">Destinations</a></li>
-            <li><a href="#culture">Culture</a></li>
-            <li><a href="#about">About Us</a></li>
-        </ul>
-    </div>
-</nav>
+   <!-- NAVIGATION -->
+        <nav class="navbar">
+            <div class="nav-container">
+
+                <!-- LOGO -->
+                <div class="logo">
+                    <a href="#">
+                        <img src="Source/img/logo.png" alt="CeylonLove Logo">
+                    </a>
+                </div>
+
+                <!-- Hamburger -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- NAV LINKS -->
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#places">Destinations</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+
+            </div>
+        </nav>
+
 
 
     <!-- HERO -->
@@ -197,7 +218,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Discover Sri Lanka. All Rights Reserved.</p>
+            <p>&copy; 2025 CeylonLove. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -213,6 +234,27 @@
             slides[currentSlide].classList.add('active');
         }, 5000);
     </script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", function () { 
+        navLinks.classList.toggle("active");
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+        });
+    });
+
+});
+</script>
+
 
 </body>
 </html>
