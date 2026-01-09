@@ -497,6 +497,13 @@ footer {
     transform: scale(1.08);
 }
 
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+
 /* MOBILE */
 @media (max-width: 768px) {
     .culture-block, .culture-block.reverse,
