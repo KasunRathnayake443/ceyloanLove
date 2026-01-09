@@ -132,14 +132,12 @@ body {
     }
 }
 
-
-
 /* HERO SLIDESHOW */
 .hero {
     position: relative;
     height: 100vh;
     overflow: hidden;
-     padding-top: 70px;
+    padding-top: 70px;
 }
 
 .hero-slides {
@@ -163,10 +161,7 @@ body {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.55)
-    );
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55));
     z-index: 1;
 }
 
@@ -200,6 +195,14 @@ body {
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: #f0f9ff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* LAYOUT */
@@ -356,7 +359,6 @@ footer {
     }
 }
 
-
 /* CULTURE PAGE */
 .culture-hero {
     position: relative;
@@ -425,20 +427,6 @@ footer {
 .culture-image:hover img {
     transform: scale(1.08);
 }
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .culture-block,
-    .culture-block.reverse {
-        flex-direction: column;
-    }
-
-    .culture-hero-content h1 {
-        font-size: 2.4rem;
-    }
-}
-
-
 
 /* DESTINATIONS PAGE */
 .destinations-hero {
@@ -511,12 +499,283 @@ footer {
 
 /* MOBILE */
 @media (max-width: 768px) {
-    .destination-block,
-    .destination-block.reverse {
+    .culture-block, .culture-block.reverse,
+    .destination-block, .destination-block.reverse {
         flex-direction: column;
     }
 
+    .culture-hero-content h1,
     .destinations-hero-content h1 {
         font-size: 2.4rem;
+    }
+}
+
+/* ========== ABOUT PAGE STYLES ========== */
+
+/* Mission Section */
+#mission {
+    background: #ffffff;
+}
+
+.mission-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.mission-text {
+    flex: 1;
+}
+
+.mission-text p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.mission-image {
+    flex: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.mission-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.mission-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Values Section */
+#values {
+    background: #f0f9ff;
+}
+
+#values h2 {
+    color: #1e3a8a;
+}
+
+/* Values Section - 6 cards layout */
+#values .culture-card {
+    height: 100%;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+}
+
+#values .culture-card-header {
+    height: 180px;
+}
+
+#values .culture-card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#values .culture-card-body h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: #1e3a8a;
+}
+
+#values .culture-card-body p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex: 1;
+}
+
+/* Grid for 6 cards */
+@media (min-width: 1200px) {
+    #values .culture-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    #values .culture-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    #values .culture-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #values .culture-card {
+        min-height: 380px;
+    }
+}
+
+/* Why Choose Us Section */
+#team {
+    background: #ffffff;
+}
+
+.team-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Why Choose Us - 6 cards layout */
+#team .places-grid {
+    display: grid;
+    gap: 30px;
+}
+
+/* Grid for 6 cards */
+@media (min-width: 1200px) {
+    #team .places-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    #team .places-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    #team .places-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+#team .place-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    height: 100%;
+}
+
+#team .place-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+}
+
+#team .place-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 180px;
+}
+
+#team .place-content h3 {
+    color: #1e3a8a;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+#team .place-content p {
+    flex: 1;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+#team .place-image {
+    height: 200px;
+}
+
+/* CTA Section */
+#cta-about {
+    background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.9));
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#cta-about h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+#cta-about p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #1e3a8a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+}
+
+/* Responsive Design for About Page */
+@media (max-width: 768px) {
+    .mission-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .mission-image img {
+        height: 250px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn, .btn-secondary {
+        width: 200px;
+    }
+    
+    #cta-about h2 {
+        font-size: 1.8rem;
+    }
+    
+    .team-subtitle {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+    
+    #values .culture-card {
+        min-height: 380px;
+    }
+    
+    #team .place-content {
+        min-height: auto;
+    }
+    
+    #team .place-image {
+        height: 180px;
     }
 }
