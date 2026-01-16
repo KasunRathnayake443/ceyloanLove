@@ -923,10 +923,12 @@ footer {
     box-shadow: 0 5px 15px rgba(199,161,74,0.3);
 }
 
-/* Contact Info Cards */
+/* =========================
+   MODERN CONTACT INFO CARDS
+========================= */
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 30px;
     margin-top: 50px;
     max-width: 1000px;
@@ -935,27 +937,64 @@ footer {
 }
 
 .contact-info .info-card {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
+    background: linear-gradient(145deg, #ffffff, #f0f9ff);
+    padding: 30px 20px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info .info-card::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle at top left, rgba(199,161,74,0.2), transparent 70%);
+    top: -50%;
+    left: -50%;
+    transform: rotate(25deg);
+    transition: transform 0.5s ease;
+    z-index: 0;
+    border-radius: 50%;
+}
+
+.contact-info .info-card:hover::before {
+    transform: rotate(45deg) translate(10px, 10px);
 }
 
 .contact-info .info-card h3 {
     color: #1e3a8a;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    position: relative;
+    z-index: 1;
 }
 
 .contact-info .info-card p {
     font-size: 1rem;
     color: #555;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
 }
 
 .contact-info .info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+    background: linear-gradient(145deg, #f0f9ff, #e0f2ff);
+}
+
+/* Optional: Add icons inside info cards */
+.contact-info .info-card i {
+    font-size: 2rem;
+    color: #c7a14a;
+    margin-bottom: 12px;
+    display: block;
+    position: relative;
+    z-index: 1;
 }
 
 /* =========================
@@ -976,5 +1015,6 @@ footer {
 
     .contact-info {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
