@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CeylonLove | Discovering Sri Lanka</title>
+    <link rel="stylesheet" href="Source/css/main.css">
+    <link rel="icon" type="image/x-icon" href="Source/img/logo.png">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Source/img/logo.png" alt="Logo">
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#places">Destinations</a></li>
+                <li><a href="index.html#culture">Culture</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-slides">
+            <img src="Source/img/contact-hero.jpg" class="slide active" alt="Contact Sri Lanka">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Contact CeylonLove</h1>
+            <p>We'd love to hear from you! Reach out for inquiries or assistance</p>
+        </div>
+    </div>
+
+    <!-- CONTACT FORM SECTION -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Have questions, feedback, or want to plan your trip? Fill out the form below and we'll get back to you as soon as possible.</p>
+            
+            <div class="contact-form-container">
+                <form action="#" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- CONTACT INFO -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>Email</h3>
+                    <p>Tharusha@ceylonlove.com</p>
+                </div>
+                <div class="info-card">
+                    <h3>Phone</h3>
+                    <p>+94 123 456 789</p>
+                </div>
+                <div class="info-card">
+                    <h3>Address</h3>
+                    <p>123 Island Road, Colombo, Sri Lanka</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section id="cta-contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Explore Sri Lanka?</h2>
+                <p>Let us help you plan your dream adventure in our island paradise!</p>
+                <div class="cta-buttons">
+                    <a href="index.html#places" class="btn">Explore Destinations</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CeylonLove. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="Source/js/navbar.js"></script>
+    <script src="Source/js/navbarScroll.js"></script>
+</body>
+</html>
