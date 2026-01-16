@@ -1,13 +1,14 @@
-const elements = document.querySelectorAll('.fade-left, .fade-right');
+// Fade-in animation when scrolling
+const observers = document.querySelectorAll('.fade-in');
 
-const revealOnScroll = () => {
-    elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= window.innerHeight - 100) {
+const reveal = () => {
+    observers.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) {
             el.classList.add('show');
         }
     });
 };
 
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
