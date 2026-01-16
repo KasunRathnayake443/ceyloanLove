@@ -1,14 +1,20 @@
-// Fade-in animation when scrolling
-const observers = document.querySelectorAll('.fade-in');
-
-const reveal = () => {
-    observers.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < window.innerHeight - 50) {
-            el.classList.add('show');
-        }
-    });
+const observerOptions = {
+    threshold: 0.1 // Triggers as soon as 10% of the element is visible
 };
 
-window.addEventListener('scroll', reveal);
-window.addEventListener('load', reveal);
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Adds the class when scrolling DOWN into view
+            entry.target.classList.add('active');
+        } else {
+            // Removes the class when scrolling UP (out of view)
+            // This creates the "reverse" effect
+            entry.target.classList.remove('active');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.history-item').forEach(item => {
+    observer.observe(item);
+});
