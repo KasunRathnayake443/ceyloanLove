@@ -317,23 +317,30 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* PLACES */
+/* =========================
+   PLACES SECTION
+========================= */
 .places-section {
     background: #f0f9ff;
+    padding: 50px 20px;
 }
 
 .places-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    align-items: stretch; /* ensures all grid items are same height */
 }
 
 .place-card {
+    display: flex;
+    flex-direction: column;
     background: white;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    height: 100%; /* stretch to match grid */
 }
 
 .place-card:hover {
@@ -342,15 +349,17 @@ h2 {
 }
 
 .place-image {
-    height: 220px;
+    height: 220px; /* fixed height */
+    width: 100%;
     position: relative;
     overflow: hidden;
+    flex-shrink: 0; /* image does not shrink */
 }
 
 .place-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* ensures image fills area nicely */
     transition: transform 0.6s ease;
 }
 
@@ -373,6 +382,10 @@ h2 {
 
 .place-content {
     padding: 20px;
+    flex-grow: 1; /* fills remaining space so all cards align */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .place-content h3 {
