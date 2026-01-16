@@ -1,0 +1,12 @@
+/* Initial state: Hidden and moved down 50px */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+/* Active state: Visible and back in original position */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
