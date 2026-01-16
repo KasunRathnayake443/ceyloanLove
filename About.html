@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - CeylonLove | Discovering Sri Lanka</title>
     <link rel="stylesheet" href="Source/css/main.css">
+    <link rel="stylesheet" href="Source/css/main animation.css">
     <link rel="icon" type="image/x-icon" href="Source/img/logo.png">
 </head>
 
@@ -12,27 +13,31 @@
    <!-- NAVIGATION --->
         
 <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="Source/img/logo.png" alt="Logo">
-            </div>
+<nav class="navbar">
+    <div class="nav-container">
 
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#places">Destinations</a></li>
-                <li><a href="index.html#culture">Culture</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+        <div class="logo">
+            <img src="Source/img/logo.png" alt="Logo">
         </div>
-    </nav>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#places">Destinations</a></li>
+            <li><a href="index.html#culture">Culture</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          
+        </div>
+
+    </div>
+</nav>
 
     <!-- HERO -->
     <div class="hero">
@@ -208,7 +213,7 @@
                 <p>Let us help you create unforgettable memories in our island paradise</p>
                 <div class="cta-buttons">
                     <a href="index.html#places" class="btn">Explore Destinations</a>
-                    <a href="#" class="btn btn-secondary">Contact Us</a>
+                    <a href="contact.html" class="btn">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -223,5 +228,6 @@
 
     <script src="Source/js/navbar.js"></script>
      <script src="Source/js/navbarScroll.js"></script>
+     <script src="Source/js/main animation.js"></script>
 </body>
 </html>
