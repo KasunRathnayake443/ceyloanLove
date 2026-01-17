@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="Source/css/main.css">
     <link rel="icon" type="image/x-icon" href="Source/img/logo.png">
     <link rel="stylesheet" href="Source/css/main animation.css">
+    <link rel="stylesheet" href="Source/css/fact-cards.css">
 
 </head>
 
@@ -300,6 +301,18 @@
         </div>
     </footer>
 
+
+    <div id="facts-placeholder"></div>
+
+<script>
+fetch("Source/components/fact-cards.html")
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById("facts-placeholder").innerHTML = data;
+    });
+</script>
+
+<script src="Source/js/fact-cards.js"></script>
 
 
     
