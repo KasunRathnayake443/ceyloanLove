@@ -28,7 +28,7 @@ body {
 
 /* COLLAPSED STATE */
 .navbar.collapsed {
-    transform: translateY(-70px); /* moves straight up */
+    transform: translateY(-75px); /* moves straight up */
     box-shadow: none;
 }
 
@@ -53,8 +53,9 @@ body {
 ========================= */
 
 .logo img {
-    height: 70px;
+    height: 60px;
     transition: transform 0.3s ease;
+    padding-top: 3px;
 }
 
 .logo img:hover {
@@ -119,7 +120,7 @@ body {
 
     .nav-container {
         height: auto;
-        padding: 14px 18px;
+        padding: 4px 8px;
         flex-wrap: wrap;
     }
 
@@ -154,6 +155,19 @@ body {
     .navbar.collapsed {
     transform: translateY(-110px); /* moves straight up */
     box-shadow: none;
+}
+
+.navbar {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    pointer-events: auto;
+
+    /* KEY FIX */
+    transform: translateY(0);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 }
 
