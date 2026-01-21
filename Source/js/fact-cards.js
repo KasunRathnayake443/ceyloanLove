@@ -31,7 +31,7 @@ function initFactCards(cards) {
         const card = cards[index];
         card.classList.add("show");
 
-        const closeBtn = card.querySelector(".fact-close");
+        const closeBtn = card.querySelector(".close-btn");
 
         const hideCard = () => {
             card.classList.remove("show");

@@ -300,11 +300,17 @@
 
 <script>
 fetch("Source/components/testimonials.html")
-    .then(res => res.text())
-    .then(data => {
-        document.getElementById("testimonials-placeholder").innerHTML = data;
-    });
+  .then(res => res.text())
+  .then(data => {
+      document.getElementById("testimonials-placeholder").innerHTML = data;
+
+      // Only initialize carousel after HTML is loaded
+      const script = document.createElement('script');
+      script.src = "Source/js/testimonials.js";
+      document.body.appendChild(script);
+  });
 </script>
+
 
 
 

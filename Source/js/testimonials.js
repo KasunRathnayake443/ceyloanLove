@@ -1,48 +1,73 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".testimonial-card");
-    const prevBtn = document.querySelector(".carousel-btn.prev");
-    const nextBtn = document.querySelector(".carousel-btn.next");
+  const cards = document.querySelectorAll(".testimonial-card");
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const nextBtn = document.querySelector(".carousel-btn.next");
 
-    if (!cards.length) return;
+  if (!cards.length) return;
 
-    let index = 0;
-    const INTERVAL = 5000; // 5 seconds
-    let autoRotate;
+  let index = 0;
+  const INTERVAL = 5000;
+  let autoRotate;
 
-    function showCard(i) {
-        cards.forEach(card => card.classList.remove("active"));
-        cards[i].classList.add("active");
-    }
+  function showCard(nextIndex, direction = "right") {
+    if (nextIndex === index) return;
 
-    function nextCard() {
-        index = (index + 1) % cards.length;
-        showCard(index);
-    }
+    const currentCard = cards[index];
+    const nextCard = cards[nextIndex];
 
-    function prevCard() {
-        index = (index - 1 + cards.length) % cards.length;
-        showCard(index);
-    }
+    // Clear all animation classes
+    cards.forEach(card => card.classList.remove(
+      "slide-in-left","slide-in-right",
+      "slide-out-left","slide-out-right",
+      "active"
+    ));
 
-    nextBtn.addEventListener("click", () => {
-        nextCard();
-        resetAutoRotate();
-    });
+    // Animate current card out
+    currentCard.classList.add(direction === "right" ? "slide-out-left" : "slide-out-right");
 
-    prevBtn.addEventListener("click", () => {
-        prevCard();
-        resetAutoRotate();
-    });
+    // Prepare next card
+    nextCard.classList.add(direction === "right" ? "slide-in-right" : "slide-in-left");
 
-    function startAutoRotate() {
-        autoRotate = setInterval(nextCard, INTERVAL);
-    }
+    // Force reflow
+    nextCard.offsetWidth;
 
-    function resetAutoRotate() {
-        clearInterval(autoRotate);
-        startAutoRotate();
-    }
+    // Make next card active
+    nextCard.classList.add("active");
+    nextCard.classList.remove(direction === "right" ? "slide-in-right" : "slide-in-left");
 
-    showCard(index);
+    index = nextIndex;
+  }
+
+  function nextCard() {
+    let nextIndex = (index + 1) % cards.length;
+    showCard(nextIndex, "right");
+  }
+
+  function prevCard() {
+    let prevIndex = (index - 1 + cards.length) % cards.length;
+    showCard(prevIndex, "left");
+  }
+
+  nextBtn.addEventListener("click", () => {
+    nextCard();
+    resetAutoRotate();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    prevCard();
+    resetAutoRotate();
+  });
+
+  function startAutoRotate() {
+    autoRotate = setInterval(nextCard, INTERVAL);
+  }
+
+  function resetAutoRotate() {
+    clearInterval(autoRotate);
     startAutoRotate();
+  }
+
+  // Initialize first card
+  cards[index].classList.add("active");
+  startAutoRotate();
 });
