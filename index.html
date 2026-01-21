@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="Source/img/logo.png">
     <link rel="stylesheet" href="Source/css/main animation.css">
     <link rel="stylesheet" href="Source/css/fact-cards.css">
+    <link rel="stylesheet" href="Source/css/testimonials.css">
 
 </head>
 
@@ -294,28 +295,45 @@
         </div>
     </section>
 
+    <!-- Testimonials -->
+<div id="testimonials-placeholder"></div>
+
+<script>
+fetch("Source/components/testimonials.html")
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById("testimonials-placeholder").innerHTML = data;
+    });
+</script>
+
+
+
+
+
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 CeylonLove. All Rights Reserved.</p>
+            <p>&copy; 2025 CABBY TOURS. All Rights Reserved.</p>
         </div>
     </footer>
 
 
-    <div id="facts-placeholder"></div>
+ <div id="facts-placeholder"></div>
 
 <script>
 fetch("Source/components/fact-cards.html")
     .then(res => res.text())
-    .then(data => {
-        document.getElementById("facts-placeholder").innerHTML = data;
+    .then(html => {
+        document.getElementById("facts-placeholder").innerHTML = html;
+
+        // 🔥 INIT FACT CARDS AFTER HTML LOADS
+        initFactCards();
     });
 </script>
 
-<script src="Source/js/fact-cards.js"></script>
 
-
-    
+    <script src="Source/js/fact-cards.js"></script>
+    <script src="Source/js/testimonials.js"></script>
     <script src="Source/js/slideshow.js"></script>
     <script src="Source/js/navbarScroll.js"></script>
     <script src="Source/js/main animation.js"></script>
