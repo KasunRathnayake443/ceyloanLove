@@ -102,3 +102,36 @@ header {
         text-align: center;
     }
 }
+
+/* =========================
+   SEE MORE / SEE LESS
+========================= */
+
+.more-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+    opacity: 0;
+}
+
+.more-content.expanded {
+    max-height: 500px; /* enough for text */
+    opacity: 1;
+}
+
+.see-more-btn {
+    margin-top: 15px;
+    background: transparent;
+    border: 1px solid #0f172a;
+    color: #0f172a;
+    padding: 8px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.see-more-btn:hover {
+    background: #0f172a;
+    color: white;
+}

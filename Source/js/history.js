@@ -18,3 +18,20 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.history-item').forEach(item => {
     observer.observe(item);
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".see-more-btn");
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const moreContent = btn.previousElementSibling;
+
+            moreContent.classList.toggle("expanded");
+
+            btn.textContent = moreContent.classList.contains("expanded")
+                ? "See less"
+                : "See more";
+        });
+    });
+});

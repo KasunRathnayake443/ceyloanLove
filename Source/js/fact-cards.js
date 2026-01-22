@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function initFactCards(cards) {
 
     const DISPLAY_TIME = 10000; // 10s per card
-    const START_DELAY = 3000;  // first card delay
+    const START_DELAY = 10000;  // first card delay
     const COOLDOWN = 60000;    // 1 minute after close
 
     const lastClosed = localStorage.getItem("factCardsClosedAt");
