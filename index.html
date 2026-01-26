@@ -8,7 +8,7 @@
     <link rel="icon" type="image/x-icon" href="Source/img/logo.png">
     <link rel="stylesheet" href="Source/css/main animation.css">
     <link rel="stylesheet" href="Source/css/fact-cards.css">
-    <link rel="stylesheet" href="Source/css/testimonials.css">
+    <link rel="stylesheet" href="Source/css/cards.css">
 
 </head>
 
@@ -295,21 +295,51 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-<div id="testimonials-placeholder"></div>
+<!-- TESTIMONIAL SECTION -->
+<section class="testimonials-section">
 
-<script>
-fetch("Source/components/testimonials.html")
-  .then(res => res.text())
-  .then(data => {
-      document.getElementById("testimonials-placeholder").innerHTML = data;
+    <button class="nav-btn left-btn" id="prevBtn">‹</button>
 
-      // Only initialize carousel after HTML is loaded
-      const script = document.createElement('script');
-      script.src = "Source/js/testimonials.js";
-      document.body.appendChild(script);
-  });
-</script>
+    <div class="testimonial-wrapper">
+        <div class="testimonial-carousel" id="carousel">
+
+            <div class="testimonial-card">
+                <img src="Source/img/users/user1.jpg" alt="Alex">
+                <p>"CeylonLove helped me discover hidden gems in Sri Lanka."</p>
+                <h4>Alex</h4>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="Source/img/users/user2.jpg" alt="Nimal">
+                <p>"Beautiful design and amazing cultural insights."</p>
+                <h4>Nimal</h4>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="Source/img/users/user3.jpg" alt="Sarah">
+                <p>"Perfect site for anyone visiting Sri Lanka."</p>
+                <h4>Sarah</h4>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="Source/img/users/user4.jpg" alt="Kasun">
+                <p>"Loved the ancient kingdoms section!"</p>
+                <h4>Kasun</h4>
+            </div>
+
+        </div>
+    </div>
+
+    <button class="nav-btn right-btn" id="nextBtn">›</button>
+
+</section>
+
+<!-- CSS -->
+<link rel="stylesheet" href="cards.css">
+
+<!-- JS -->
+<script src="Source/js/cards.js"></script>
+
 
 
 
