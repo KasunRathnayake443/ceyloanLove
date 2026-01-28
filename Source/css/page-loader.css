@@ -1,0 +1,60 @@
+/* =========================
+   GLOBAL PAGE LOADER
+========================= */
+
+.page-loader {
+    position: fixed;
+    inset: 0;
+    background: #0b1d26; /* your dark theme */
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Loader content */
+.loader-content {
+    text-align: center;
+    color: #f8fafc;
+}
+
+/* Elephant image */
+.loader-content img {
+    width: 120px;
+    filter: grayscale(100%);
+    opacity: 0.9;
+
+    animation: elephant-breathe 2.5s ease-in-out infinite;
+}
+
+/* Text */
+.loader-content p {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+}
+
+/* Subtle animation */
+@keyframes elephant-breathe {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.06);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+}
