@@ -117,6 +117,7 @@ header {
 .more-content.expanded {
     max-height: 500px; /* enough for text */
     opacity: 1;
+    overflow: auto;
 }
 
 .see-more-btn {

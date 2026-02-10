@@ -28,7 +28,7 @@
 
 /* Elephant image */
 .loader-content img {
-    width: 120px;
+    width: 140px;
     filter: grayscale(100%);
     opacity: 0.9;
 
@@ -38,7 +38,7 @@
 /* Text */
 .loader-content p {
     margin-top: 14px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     letter-spacing: 0.15em;
     opacity: 0.7;
 }
